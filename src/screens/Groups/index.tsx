@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { Header } from '../../components/Header';
 import { HighLight } from '../../components/Highlight';
@@ -10,6 +11,12 @@ import * as S from './styles';
 
 export function Groups() {
   const [groups, setGroups] = useState<string[]>(['Roda de Samba aos domingos', 'Feira de adoção de cobra coral', 'Ninjas anônimos de Feira de Santana', 'Feijoada do Fabrício']);
+
+  const navigation = useNavigation();
+
+  function handleNewGroup(){
+    navigation.navigate('new');
+  }
 
   return (
     <S.Container>
@@ -24,7 +31,7 @@ export function Groups() {
           ListEmptyComponent={() => <ListEmpty message="Listagem de turmas vazia"/>}
           />
 
-          <Button title="Criar nova turma" />
+          <Button title="Criar nova turma" onPress={handleNewGroup}/>
 
     </S.Container>
   );

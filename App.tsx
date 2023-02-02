@@ -1,5 +1,5 @@
 import { StatusBar } from 'react-native';
-import { Groups } from './src/screens/Groups/index';
+import { Players } from './src/screens/Players/index';
 import { ThemeProvider } from 'styled-components';
 // import { ActivityIndicator} from 'react-native';
 
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" backgroundColor="transparente" translucent/>
-      {fontsLoaded ? <Groups /> : <Loading />}
+      {fontsLoaded ? <Players /> : <Loading />}
     </ThemeProvider>
   );
 }
